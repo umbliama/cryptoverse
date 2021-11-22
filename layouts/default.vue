@@ -929,10 +929,6 @@ export default {
     max-width: 1280px;
     justify-content: space-between;
 
-    &-logo {
-      &__item {
-      }
-    }
     &-nav {
       display: flex;
       align-items: center;
@@ -976,8 +972,6 @@ export default {
       &-item {
         list-style: none;
         margin: 0 49px 0 0;
-        &__link {
-        }
       }
     }
   }
@@ -1007,8 +1001,6 @@ export default {
       flex-direction: column;
     }
 
-    &-text {
-    }
     &-mint {
       margin: 0 0 0 341px;
       @include for-tablet-portrait-up {
@@ -1130,8 +1122,7 @@ export default {
         }
       }
     }
-    &-text {
-    }
+
     &-mint {
       margin: 0 0 0 341px;
       &-box {
@@ -1265,10 +1256,6 @@ export default {
               margin: 0;
             }
           }
-          &-link {
-            &__img {
-            }
-          }
         }
       }
     }
@@ -1348,8 +1335,6 @@ export default {
               border-radius: 4px;
               padding: 8px;
             }
-            &__img {
-            }
           }
         }
       }
@@ -1411,8 +1396,6 @@ export default {
 
         &:nth-child(1) {
           margin: 0;
-        }
-        &__title {
         }
       }
     }
