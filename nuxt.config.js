@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors'  
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -14,6 +14,12 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    script:[
+      {src:"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js",body:true},
+      {src:"https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js",body:true},
+      {src:"https://unpkg.com/fullpage.js/dist/fullpage.min.js",body:true},
+    ],  
+    
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,15 +30,17 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  plugins: [{
+    src: '~/plugins/vmodal.js',
+  }],
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "~/assets/fullpage.min.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
 
+  // plugins: ['~/assets/scrolloverflow.min.js'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -43,8 +51,13 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+//   modules: [
+//     // Simple usage
+//     'nuxt-fullpage.js',
+ 
+//     // With options
+//     ['nuxt-fullpage.js', { /* module options */ }],
+//  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -64,7 +77,12 @@ export default {
       }
     }
   },
-
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
