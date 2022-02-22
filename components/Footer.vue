@@ -26,14 +26,16 @@
 
 <style lang="scss" scoped>
 .page-footer {
-  position: absolute;
   background: rgba(22, 22, 22, 0.5);
-  backdrop-filter: blur(10px);
   left: 0;
   bottom: 0;
   width: 100%;
   color: white;
-  padding: 32px 0;
+  padding: 20px 0;
+  position: absolute;
+  @include for-sm-laptop {
+    padding: 15px 0;
+  }
   @include for-tablet-portrait-up {
     padding: 0;
   }
@@ -43,9 +45,17 @@
   &-inner {
     max-width: 1280px;
     margin: 0 auto;
+    @include for-tablet-portrait-up {
+      width: 100%;
+    }
     &-wrapper {
       display: flex;
       justify-content: space-between;
+      // @include for-tablet-portrait-up {
+      //   flex-direction: column;
+      //   padding: 16px;
+      // }
+
       @include for-tablet-portrait-up {
         flex-direction: column;
         padding: 16px;
@@ -59,6 +69,7 @@
         align-items: center;
         &-progress {
           margin: 0 24px;
+          display: flex;
         }
         &__page {
           font-size: 16px;
@@ -76,7 +87,12 @@
         /* identical to box height, or 140% */
 
         text-transform: uppercase;
+        @include for-tablet-portrait-up {
+          font-size: 30px;
+        }
         @include for-phone-only {
+          filter: blur(0);
+
           font-size: 16px;
           line-height: 24px;
         }

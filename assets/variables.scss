@@ -2,8 +2,9 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+
 body {
-  font-family: "Roboto";
+  font-family: "Roboto" !important;
 }
 .bg {
   background: url("~/static/bg.png") no-repeat;
@@ -12,15 +13,7 @@ body {
   position: relative;
   background-size: cover;
 }
-.inner {
-  display: flex;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 138px 0;
-  @media (max-width: 1600px) {
-    padding: 50px 0;
-  }
-}
+
 @font-face {
   font-family: "Roboto";
   src: url("~/static/fonts/Roboto-Regular.ttf");
@@ -32,6 +25,8 @@ body {
   padding: 8px 16px;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
+  opacity: 0.6;
 }
 .link {
   text-decoration: none;
@@ -75,12 +70,12 @@ body {
   }
 }
 @mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     @content;
   }
 }
 @mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
+  @media (min-width: 800px) and (max-width: 900px) {
     @content;
   }
 }
@@ -89,8 +84,99 @@ body {
     @content;
   }
 }
+@mixin for-sm-laptop {
+  @media screen and (max-width: 1566px) {
+    @content;
+  }
+}
+
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) {
     @content;
   }
+}
+
+@include for-phone-only() {
+  .mobile-none {
+    display: none !important;
+  }
+}
+
+@include for-desktop-up() {
+  .desktop-none {
+    display: none !important;
+  }
+}
+.header {
+  &-outer {
+    background: rgba(22, 22, 22, 0.5);
+    backdrop-filter: blur(10px);
+    top: 0;
+    // position: fixed;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+  }
+  &-menu {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1280px;
+    justify-content: space-between;
+    @include for-phone-only {
+      width: 100%;
+    }
+
+    &-nav {
+      display: flex;
+      align-items: center;
+      @include for-desktop-up {
+        display: flex !important;
+      }
+      @include for-tablet-portrait-up {
+        display: none;
+      }
+      @include for-phone-only {
+        display: none;
+      }
+      &--buy {
+        @include for-desktop-up {
+          display: flex;
+          flex-direction: row !important;
+        }
+        @include for-tablet-portrait-up {
+          display: flex;
+          flex-direction: row;
+          padding: 0 0 0 25px;
+          justify-content: center;
+        }
+        @include for-phone-only {
+          display: flex;
+          flex-direction: column;
+          padding: 0 0 0 25px;
+          justify-content: center;
+        }
+      }
+      &-link {
+        &--gallery {
+          // @include for-tablet-portrait-up {
+          //   display: none;
+          // }
+          @include for-phone-only {
+            display: none;
+          }
+        }
+      }
+      &-item {
+        list-style: none;
+        margin: 0 49px 0 0;
+      }
+    }
+  }
+}
+.header-menu-nav-item__img--twitter {
+  width: 32px !important;
+}
+.header-menu-nav-item__img {
+  width: 25px;
+  margin: 5px 0 0 0;
 }

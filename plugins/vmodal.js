@@ -3,5 +3,5 @@ import Modal from '../node_modules/vue-js-modal/dist/ssr.nocss'
 
 import "../node_modules/vue-js-modal/dist/styles.css"
 
-Vue.use(Modal);
+Vue.use(Modal, {componentName :"my-modal"});
 
